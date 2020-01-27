@@ -1,0 +1,34 @@
+Executable (from root)
+gcc -o demo -z execstack -fno-stack-protector demo.c
+
+Debug (from seed)
+gcc -z execstack -fno-stack-protector -g -o demo_dbg demo.c
+gdb demo_dbg
+b foo
+run
+p $ebp
+p &buffer
+quit
+
+//zsh flag set kore
+sudo ln -sf /bin/zsh /bin/sh
+
+//gie execution permission
+chmod u+x exploit.py
+
+
+gcc -o raw -z execstack -fno-stack-protector raw.c
+sudo chown root raw
+sudo chmod 4755 raw 
+ls -l
+gcc -z execstack -fno-stack-protector -g -o raw_dbg raw.c
+gdb --nx raw_dbg
+b copy
+run
+p $ebp
+p &buffer
+quit
+
+exploit.py
+./demo
+
