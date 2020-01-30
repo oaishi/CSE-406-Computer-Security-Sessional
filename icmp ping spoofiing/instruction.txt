@@ -1,0 +1,20 @@
+
+How to compile the programs
+ gcc -o icmp_spoof spoof_icmp.c checksum.c spoof.c 
+
+gcc -o icmp_spoof spoof_icmp.c
+sudo ./icmp_spoof "172.20.57.57" "172.20.57.56" 5
+
+# gcc -o udp_spoof spoof_udp.c spoof.c checksum.c
+"172.20.57.57" "172.20.57.56"
+
+
+xhost +si:localuser:root
+
+sudo tcpdump -B 20000 -p -v -nn icmp
+
+
+ pyuic4 -o frontend.py -x frontend.ui
+
+
+python frontend.py
